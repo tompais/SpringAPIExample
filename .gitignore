@@ -37,4 +37,4 @@ out/
 logs/
 logs/*
 logs
-/logs/
+/logs/*
