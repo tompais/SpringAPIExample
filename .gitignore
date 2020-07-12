@@ -32,4 +32,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Logs ###
+logs/
 /logs/
