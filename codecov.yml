@@ -14,16 +14,11 @@ coverage:
         # basic settings
         target: auto
         threshold: 80%
-        base: auto 
-        # advanced settings
-        branches: 
-          - master
+        base: auto
         if_no_uploads: error
         if_not_found: success
         if_ci_failed: error
         only_pulls: false
-        flags: 
-          - backend
 
 parsers:
   gcov:
