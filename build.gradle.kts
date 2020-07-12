@@ -73,6 +73,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.22")
 }
 
 val outputDir = "${project.buildDir}/reports/ktlint/"
