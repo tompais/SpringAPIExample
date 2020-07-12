@@ -151,7 +151,7 @@ tasks.jacocoTestReport {
 	reports {
 		xml.isEnabled = true
 		csv.isEnabled = false
-		html.isEnabled = false
+		html.isEnabled = true
 	}
 }
 
