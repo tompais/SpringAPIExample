@@ -1,0 +1,173 @@
+2020-07-12 17:55:38,483 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-12 17:55:40,634 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2020-07-12 17:55:41,551 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-12 17:55:41,555 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-07-12 17:55:41,657 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 88ms. Found 1 JPA repository interfaces.
+2020-07-12 17:55:42,167 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-12 17:55:42,168 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2020-07-12 17:55:42,191 INFO o.s.d.r.c.RepositoryConfigurationExtensionSupport [restartedMain] Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.spring_api.databases.repositories.IUserRepository. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2020-07-12 17:55:42,191 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 22ms. Found 0 JDBC repository interfaces.
+2020-07-12 17:55:42,635 INFO o.s.c.c.s.GenericScope [restartedMain] BeanFactory id=55089c5a-6f0b-3289-8e02-2c66ff0751c0
+2020-07-12 17:55:43,782 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2020-07-12 17:55:43,798 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-12 17:55:43,799 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2020-07-12 17:55:43,799 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-12 17:55:43,961 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-07-12 17:55:43,962 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3307 ms
+2020-07-12 17:55:44,207 DEBUG c.z.h.HikariConfig [restartedMain] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader TomcatEmbeddedWebappClassLoader
+  context: ROOT
+  delegate: true
+----------> Parent Classloader:
+org.springframework.boot.devtools.restart.classloader.RestartClassLoader@78571993
+
+2020-07-12 17:55:44,214 DEBUG c.z.h.HikariConfig [restartedMain] SpringBootJPAHikariCP - configuration:
+2020-07-12 17:55:44,217 DEBUG c.z.h.HikariConfig [restartedMain] allowPoolSuspension.............false
+2020-07-12 17:55:44,218 DEBUG c.z.h.HikariConfig [restartedMain] autoCommit......................true
+2020-07-12 17:55:44,218 DEBUG c.z.h.HikariConfig [restartedMain] catalog.........................none
+2020-07-12 17:55:44,219 DEBUG c.z.h.HikariConfig [restartedMain] connectionInitSql...............none
+2020-07-12 17:55:44,219 DEBUG c.z.h.HikariConfig [restartedMain] connectionTestQuery.............none
+2020-07-12 17:55:44,220 DEBUG c.z.h.HikariConfig [restartedMain] connectionTimeout...............30000
+2020-07-12 17:55:44,220 DEBUG c.z.h.HikariConfig [restartedMain] dataSource......................none
+2020-07-12 17:55:44,220 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceClassName.............none
+2020-07-12 17:55:44,221 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceJNDI..................none
+2020-07-12 17:55:44,222 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceProperties............{password=<masked>}
+2020-07-12 17:55:44,223 DEBUG c.z.h.HikariConfig [restartedMain] driverClassName................."com.mysql.cj.jdbc.Driver"
+2020-07-12 17:55:44,224 DEBUG c.z.h.HikariConfig [restartedMain] exceptionOverrideClassName......none
+2020-07-12 17:55:44,225 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckProperties...........{}
+2020-07-12 17:55:44,226 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckRegistry.............none
+2020-07-12 17:55:44,227 DEBUG c.z.h.HikariConfig [restartedMain] idleTimeout.....................30000
+2020-07-12 17:55:44,227 DEBUG c.z.h.HikariConfig [restartedMain] initializationFailTimeout.......1
+2020-07-12 17:55:44,228 DEBUG c.z.h.HikariConfig [restartedMain] isolateInternalQueries..........false
+2020-07-12 17:55:44,228 DEBUG c.z.h.HikariConfig [restartedMain] jdbcUrl.........................jdbc:mysql://localhost:3306/ceea?useSSL=false
+2020-07-12 17:55:44,228 DEBUG c.z.h.HikariConfig [restartedMain] leakDetectionThreshold..........0
+2020-07-12 17:55:44,229 DEBUG c.z.h.HikariConfig [restartedMain] maxLifetime.....................2000000
+2020-07-12 17:55:44,229 DEBUG c.z.h.HikariConfig [restartedMain] maximumPoolSize.................20
+2020-07-12 17:55:44,229 DEBUG c.z.h.HikariConfig [restartedMain] metricRegistry..................none
+2020-07-12 17:55:44,230 DEBUG c.z.h.HikariConfig [restartedMain] metricsTrackerFactory...........none
+2020-07-12 17:55:44,230 DEBUG c.z.h.HikariConfig [restartedMain] minimumIdle.....................5
+2020-07-12 17:55:44,230 DEBUG c.z.h.HikariConfig [restartedMain] password........................<masked>
+2020-07-12 17:55:44,231 DEBUG c.z.h.HikariConfig [restartedMain] poolName........................"SpringBootJPAHikariCP"
+2020-07-12 17:55:44,231 DEBUG c.z.h.HikariConfig [restartedMain] readOnly........................false
+2020-07-12 17:55:44,232 DEBUG c.z.h.HikariConfig [restartedMain] registerMbeans..................false
+2020-07-12 17:55:44,232 DEBUG c.z.h.HikariConfig [restartedMain] scheduledExecutor...............none
+2020-07-12 17:55:44,232 DEBUG c.z.h.HikariConfig [restartedMain] schema..........................none
+2020-07-12 17:55:44,233 DEBUG c.z.h.HikariConfig [restartedMain] threadFactory...................internal
+2020-07-12 17:55:44,233 DEBUG c.z.h.HikariConfig [restartedMain] transactionIsolation............default
+2020-07-12 17:55:44,233 DEBUG c.z.h.HikariConfig [restartedMain] username........................"root"
+2020-07-12 17:55:44,234 DEBUG c.z.h.HikariConfig [restartedMain] validationTimeout...............5000
+2020-07-12 17:55:44,235 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Starting...
+2020-07-12 17:55:44,624 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Start completed.
+2020-07-12 17:55:44,700 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/ceea?useSSL=false'
+2020-07-12 17:55:44,874 DEBUG o.s.w.f.GenericFilterBean [restartedMain] Filter 'slf4jMDCFilter' configured for use
+2020-07-12 17:55:44,911 DEBUG c.z.h.HikariConfig [restartedMain] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@78571993
+2020-07-12 17:55:44,912 DEBUG c.z.h.HikariConfig [restartedMain] SpringBootJPAHikariCP - configuration:
+2020-07-12 17:55:44,914 DEBUG c.z.h.HikariConfig [restartedMain] allowPoolSuspension.............false
+2020-07-12 17:55:44,914 DEBUG c.z.h.HikariConfig [restartedMain] autoCommit......................true
+2020-07-12 17:55:44,915 DEBUG c.z.h.HikariConfig [restartedMain] catalog.........................none
+2020-07-12 17:55:44,915 DEBUG c.z.h.HikariConfig [restartedMain] connectionInitSql...............none
+2020-07-12 17:55:44,916 DEBUG c.z.h.HikariConfig [restartedMain] connectionTestQuery.............none
+2020-07-12 17:55:44,916 DEBUG c.z.h.HikariConfig [restartedMain] connectionTimeout...............30000
+2020-07-12 17:55:44,916 DEBUG c.z.h.HikariConfig [restartedMain] dataSource......................none
+2020-07-12 17:55:44,917 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceClassName.............none
+2020-07-12 17:55:44,917 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceJNDI..................none
+2020-07-12 17:55:44,918 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceProperties............{password=<masked>}
+2020-07-12 17:55:44,918 DEBUG c.z.h.HikariConfig [restartedMain] driverClassName................."com.mysql.cj.jdbc.Driver"
+2020-07-12 17:55:44,919 DEBUG c.z.h.HikariConfig [restartedMain] exceptionOverrideClassName......none
+2020-07-12 17:55:44,919 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckProperties...........{}
+2020-07-12 17:55:44,919 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckRegistry.............none
+2020-07-12 17:55:44,920 DEBUG c.z.h.HikariConfig [restartedMain] idleTimeout.....................30000
+2020-07-12 17:55:44,920 DEBUG c.z.h.HikariConfig [restartedMain] initializationFailTimeout.......1
+2020-07-12 17:55:44,920 DEBUG c.z.h.HikariConfig [restartedMain] isolateInternalQueries..........false
+2020-07-12 17:55:44,921 DEBUG c.z.h.HikariConfig [restartedMain] jdbcUrl.........................jdbc:mysql://localhost:3306/ceea?useSSL=false
+2020-07-12 17:55:44,921 DEBUG c.z.h.HikariConfig [restartedMain] leakDetectionThreshold..........0
+2020-07-12 17:55:44,921 DEBUG c.z.h.HikariConfig [restartedMain] maxLifetime.....................2000000
+2020-07-12 17:55:44,922 DEBUG c.z.h.HikariConfig [restartedMain] maximumPoolSize.................20
+2020-07-12 17:55:44,922 DEBUG c.z.h.HikariConfig [restartedMain] metricRegistry..................none
+2020-07-12 17:55:44,922 DEBUG c.z.h.HikariConfig [restartedMain] metricsTrackerFactory...........none
+2020-07-12 17:55:44,923 DEBUG c.z.h.HikariConfig [restartedMain] minimumIdle.....................5
+2020-07-12 17:55:44,923 DEBUG c.z.h.HikariConfig [restartedMain] password........................<masked>
+2020-07-12 17:55:44,923 DEBUG c.z.h.HikariConfig [restartedMain] poolName........................"SpringBootJPAHikariCP"
+2020-07-12 17:55:44,923 DEBUG c.z.h.HikariConfig [restartedMain] readOnly........................false
+2020-07-12 17:55:44,924 DEBUG c.z.h.HikariConfig [restartedMain] registerMbeans..................false
+2020-07-12 17:55:44,924 DEBUG c.z.h.HikariConfig [restartedMain] scheduledExecutor...............none
+2020-07-12 17:55:44,924 DEBUG c.z.h.HikariConfig [restartedMain] schema..........................none
+2020-07-12 17:55:44,925 DEBUG c.z.h.HikariConfig [restartedMain] threadFactory...................internal
+2020-07-12 17:55:44,925 DEBUG c.z.h.HikariConfig [restartedMain] transactionIsolation............default
+2020-07-12 17:55:44,925 DEBUG c.z.h.HikariConfig [restartedMain] username........................"root"
+2020-07-12 17:55:44,925 DEBUG c.z.h.HikariConfig [restartedMain] validationTimeout...............5000
+2020-07-12 17:55:44,926 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Starting...
+2020-07-12 17:55:44,934 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Start completed.
+2020-07-12 17:55:45,089 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-12 17:55:45,288 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-12 17:55:45,576 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-12 17:55:45,853 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-12 17:55:46,671 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] 
+    
+    drop table if exists users
+2020-07-12 17:55:46,703 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] 
+    
+    create table users (
+       id bigint not null auto_increment,
+        birthday date not null,
+        email varchar(255) not null,
+        firstName varchar(255) not null,
+        genre varchar(255) not null,
+        lastName varchar(255) not null,
+        lastUpdate datetime(6),
+        status varchar(255) not null,
+        primary key (id)
+    ) engine=InnoDB
+2020-07-12 17:55:46,719 DEBUG o.h.e.j.s.SqlStatementLogger [restartedMain] 
+    
+    alter table users 
+       add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+2020-07-12 17:55:46,761 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-12 17:55:46,775 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-12 17:55:46,839 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-07-12 17:55:48,254 DEBUG c.z.h.HikariConfig [restartedMain] Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@78571993
+2020-07-12 17:55:48,254 DEBUG c.z.h.HikariConfig [restartedMain] SpringBootJPAHikariCP - configuration:
+2020-07-12 17:55:48,255 DEBUG c.z.h.HikariConfig [restartedMain] allowPoolSuspension.............false
+2020-07-12 17:55:48,255 DEBUG c.z.h.HikariConfig [restartedMain] autoCommit......................true
+2020-07-12 17:55:48,256 DEBUG c.z.h.HikariConfig [restartedMain] catalog.........................none
+2020-07-12 17:55:48,256 DEBUG c.z.h.HikariConfig [restartedMain] connectionInitSql...............none
+2020-07-12 17:55:48,256 DEBUG c.z.h.HikariConfig [restartedMain] connectionTestQuery.............none
+2020-07-12 17:55:48,256 DEBUG c.z.h.HikariConfig [restartedMain] connectionTimeout...............30000
+2020-07-12 17:55:48,256 DEBUG c.z.h.HikariConfig [restartedMain] dataSource......................none
+2020-07-12 17:55:48,257 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceClassName.............none
+2020-07-12 17:55:48,257 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceJNDI..................none
+2020-07-12 17:55:48,257 DEBUG c.z.h.HikariConfig [restartedMain] dataSourceProperties............{password=<masked>}
+2020-07-12 17:55:48,257 DEBUG c.z.h.HikariConfig [restartedMain] driverClassName................."com.mysql.cj.jdbc.Driver"
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] exceptionOverrideClassName......none
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckProperties...........{}
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] healthCheckRegistry.............none
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] idleTimeout.....................30000
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] initializationFailTimeout.......1
+2020-07-12 17:55:48,258 DEBUG c.z.h.HikariConfig [restartedMain] isolateInternalQueries..........false
+2020-07-12 17:55:48,259 DEBUG c.z.h.HikariConfig [restartedMain] jdbcUrl.........................jdbc:mysql://localhost:3306/ceea?useSSL=false
+2020-07-12 17:55:48,259 DEBUG c.z.h.HikariConfig [restartedMain] leakDetectionThreshold..........0
+2020-07-12 17:55:48,259 DEBUG c.z.h.HikariConfig [restartedMain] maxLifetime.....................2000000
+2020-07-12 17:55:48,259 DEBUG c.z.h.HikariConfig [restartedMain] maximumPoolSize.................20
+2020-07-12 17:55:48,259 DEBUG c.z.h.HikariConfig [restartedMain] metricRegistry..................none
+2020-07-12 17:55:48,260 DEBUG c.z.h.HikariConfig [restartedMain] metricsTrackerFactory...........none
+2020-07-12 17:55:48,260 DEBUG c.z.h.HikariConfig [restartedMain] minimumIdle.....................5
+2020-07-12 17:55:48,260 DEBUG c.z.h.HikariConfig [restartedMain] password........................<masked>
+2020-07-12 17:55:48,260 DEBUG c.z.h.HikariConfig [restartedMain] poolName........................"SpringBootJPAHikariCP"
+2020-07-12 17:55:48,261 DEBUG c.z.h.HikariConfig [restartedMain] readOnly........................false
+2020-07-12 17:55:48,261 DEBUG c.z.h.HikariConfig [restartedMain] registerMbeans..................false
+2020-07-12 17:55:48,261 DEBUG c.z.h.HikariConfig [restartedMain] scheduledExecutor...............none
+2020-07-12 17:55:48,261 DEBUG c.z.h.HikariConfig [restartedMain] schema..........................none
+2020-07-12 17:55:48,261 DEBUG c.z.h.HikariConfig [restartedMain] threadFactory...................internal
+2020-07-12 17:55:48,262 DEBUG c.z.h.HikariConfig [restartedMain] transactionIsolation............default
+2020-07-12 17:55:48,262 DEBUG c.z.h.HikariConfig [restartedMain] username........................"root"
+2020-07-12 17:55:48,262 DEBUG c.z.h.HikariConfig [restartedMain] validationTimeout...............5000
+2020-07-12 17:55:48,262 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Starting...
+2020-07-12 17:55:48,266 INFO c.z.h.HikariDataSource [restartedMain] SpringBootJPAHikariCP - Start completed.
+2020-07-12 17:55:48,433 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-12 17:55:48,648 INFO o.s.s.c.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-12 17:55:50,429 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2020-07-12 17:55:50,457 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-12 17:55:50,476 INFO o.s.b.StartupInfoLogger [restartedMain] Started SpringApiExampleApplicationKt in 13.708 seconds (JVM running for 16.884)
+2020-07-12 17:55:58,484 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-12 17:55:58,485 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-07-12 17:55:58,528 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 42 ms
+2020-07-12 17:55:59,601 INFO o.s.a.AbstractOpenApiResource [http-nio-8080-exec-9] Init duration for springdoc-openapi is: 411 ms
