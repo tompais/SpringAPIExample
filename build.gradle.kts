@@ -174,14 +174,13 @@ tasks.jacocoTestCoverageVerification {
 		}
 
 		rule {
-			enabled = false
 			element = "CLASS"
 			includes = listOf("com.example.spring_api.*")
 
 			limit {
 				counter = "LINE"
-				value = "TOTALCOUNT"
-				maximum = "0.3".toBigDecimal()
+				value = "COVEREDRATIO"
+				minimum = "0.8".toBigDecimal()
 			}
 		}
 	}
