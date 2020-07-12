@@ -134,7 +134,7 @@ tasks.compileTestKotlin {
 }
 
 tasks.check {
-	dependsOn(ktlintCheck)
+	dependsOn(ktlintCheck, tasks.jacocoTestReport)
 }
 
 tasks.test {
