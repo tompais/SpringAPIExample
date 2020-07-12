@@ -19,6 +19,11 @@ coverage:
         if_not_found: success
         if_ci_failed: error
         only_pulls: false
+      tests:  # declare a new status context "tests"
+        target: 80%  # we always want 100% coverage here
+        paths: "tests/"  # only include coverage in "tests/" folder
+        app:  # declare a new status context "app"
+          paths: "!tests/"  # remove all files in "tests/"
 
 parsers:
   gcov:
