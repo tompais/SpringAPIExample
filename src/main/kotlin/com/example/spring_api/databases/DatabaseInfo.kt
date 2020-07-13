@@ -23,10 +23,6 @@ open class DatabaseInfo(
         MYSQL(
             "com.mysql.cj.jdbc.Driver",
             "org.hibernate.dialect.MySQL8Dialect"
-        ),
-        H2(
-            "org.h2.Driver",
-            "org.hibernate.dialect.H2Dialect"
         );
 
         fun buildUrl(host: String, databaseName: String, extraParams: Map<String, String>? = null): String {
