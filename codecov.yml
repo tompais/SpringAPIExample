@@ -12,8 +12,8 @@ coverage:
     project:
       default: # This can be anything, but it needs to exist as the name
         # basic settings
-        target: number
-        threshold: 80%
+        target: 80%
+        threshold: 0%
         base: pr
         flags:
           - "unit"
