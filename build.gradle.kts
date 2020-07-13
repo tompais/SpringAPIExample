@@ -71,9 +71,12 @@ dependencies {
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+		exclude(module = "mockito-core")
 	}
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 	testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.22")
+	testImplementation("io.mockk:mockk:1.10.0")
+	testImplementation("com.ninja-squad:springmockk:2.0.2")
 }
 
 val outputDir = "${project.buildDir}/reports/ktlint/"
