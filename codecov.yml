@@ -16,7 +16,7 @@ coverage:
         threshold: 80%
         base: auto
         if_no_uploads: error
-        if_not_found: success
+        if_not_found: error
         if_ci_failed: error
         only_pulls: false
       tests:  # declare a new status context "tests"
