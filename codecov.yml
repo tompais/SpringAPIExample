@@ -12,9 +12,14 @@ coverage:
     project:
       default: # This can be anything, but it needs to exist as the name
         # basic settings
-        target: auto
+        target: number
         threshold: 80%
-        base: auto
+        base: pr
+        flags:
+          - "unit"
+          - "integration"
+        paths:
+          - "src"
         if_no_uploads: error
         if_not_found: error
         if_ci_failed: error
