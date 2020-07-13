@@ -2,11 +2,11 @@ codecov:
   bot: "codecov-io"
   ci:
     - "travis.org"
-  require_ci_to_pass: true
+  require_ci_to_pass: yes
   notify:
-    require_ci_to_pass: true
+    require_ci_to_pass: yes
     after_n_builds: 1
-    wait_for_ci: true
+    wait_for_ci: yes
 
 coverage:
   precision: 2
