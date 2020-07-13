@@ -34,4 +34,10 @@ comment:
   require_head: false       # [yes :: must have a head report to post]
 
 ignore:
-  - "**/error"
+  - "**/error*/**"
+  - "**/config*/**"
+  - "**/database*/**"
+  - "**/enum*/**"
+  - "**/filter*/**"
+  - "**/model*/**"
+  - "**/request*/**"
