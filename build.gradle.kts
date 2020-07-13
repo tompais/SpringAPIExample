@@ -159,23 +159,17 @@ tasks.jacocoTestReport {
 tasks.jacocoTestCoverageVerification {
 	violationRules {
 		rule {
-			excludes = listOf(
-				"**/error*/**",
-				"**/config*/**",
-				"**/filter*/**",
-				"**/model*/**",
-				"**/request*/**",
-				"**/database*/**",
-				"**/enum*/**"
-			)
-			limit {
-				minimum = "0.8".toBigDecimal()
-			}
-		}
-
-		rule {
 			element = "CLASS"
 			includes = listOf("com.example.spring_api.*")
+			excludes = listOf(
+				"com.example.spring_api.configs.*",
+				"com.example.spring_api.error.*",
+				"com.example.spring_api.filters.*",
+				"com.example.spring_api.models.*",
+				"com.example.spring_api.requests.*",
+				"com.example.spring_api.databases.*",
+				"com.example.spring_api.enums.*"
+			)
 
 			limit {
 				counter = "LINE"
