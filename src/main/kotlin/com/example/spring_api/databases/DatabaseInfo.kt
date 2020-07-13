@@ -23,9 +23,16 @@ open class DatabaseInfo(
         MYSQL(
             "com.mysql.cj.jdbc.Driver",
             "org.hibernate.dialect.MySQL8Dialect"
-        );
+        ),
+        H2(
+            "org.h2.Driver",
+            "org.hibernate.dialect.H2Dialect"
+        ) {
+            override fun buildUrl(host: String, databaseName: String, extraParams: Map<String, String>?): String =
+                "jdbc:${name.toLowerCase()}:$host:$databaseName"
+        };
 
-        fun buildUrl(host: String, databaseName: String, extraParams: Map<String, String>? = null): String {
+        open fun buildUrl(host: String, databaseName: String, extraParams: Map<String, String>? = null): String {
             return UriComponentsBuilder.newInstance()
                 .scheme("jdbc:${name.toLowerCase()}")
                 .host(host)
