@@ -73,6 +73,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.22")
 }
 
 val outputDir = "${project.buildDir}/reports/ktlint/"
@@ -134,7 +135,7 @@ tasks.compileTestKotlin {
 }
 
 tasks.check {
-	dependsOn(ktlintCheck)
+	dependsOn(ktlintCheck, tasks.jacocoTestReport)
 }
 
 tasks.test {
@@ -151,7 +152,7 @@ tasks.jacocoTestReport {
 	reports {
 		xml.isEnabled = true
 		csv.isEnabled = false
-		html.isEnabled = false
+		html.isEnabled = true
 	}
 }
 
@@ -173,14 +174,13 @@ tasks.jacocoTestCoverageVerification {
 		}
 
 		rule {
-			enabled = false
 			element = "CLASS"
 			includes = listOf("com.example.spring_api.*")
 
 			limit {
 				counter = "LINE"
-				value = "TOTALCOUNT"
-				maximum = "0.3".toBigDecimal()
+				value = "COVEREDRATIO"
+				minimum = "0.8".toBigDecimal()
 			}
 		}
 	}
