@@ -4,9 +4,9 @@ codecov:
     - "travis.org"
   require_ci_to_pass: true
   notify:
-    require_ci_to_pass: no
+    require_ci_to_pass: true
     after_n_builds: 1
-    wait_for_ci: false
+    wait_for_ci: true
 
 coverage:
   precision: 2
