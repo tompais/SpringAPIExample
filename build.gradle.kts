@@ -78,6 +78,11 @@ dependencies {
 		exclude(module = "mockito-core")
 	}
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("io.rest-assured:spring-mock-mvc:4.3.1") {
+		exclude(group = "com.sun.xml.bind", module = "jaxb-osgi")
+	}
+	testImplementation("io.rest-assured:rest-assured-common:4.3.1")
+	testImplementation("org.hamcrest:hamcrest-all:1.3")
 	testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.22")
 	testImplementation("io.mockk:mockk:1.10.0")
 	testImplementation("com.ninja-squad:springmockk:2.0.2")
