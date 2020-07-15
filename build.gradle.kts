@@ -4,6 +4,8 @@ plugins {
 	id("org.springframework.boot") version "2.3.1.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 	id("org.asciidoctor.convert") version "1.5.8"
+	id("com.github.johnrengelman.processes") version "0.5.0"
+	id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
 	kotlin("plugin.jpa") version "1.3.72"
@@ -61,6 +63,8 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 	implementation("org.apache.commons:commons-lang3")
 	implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
+	implementation("org.springdoc:springdoc-openapi-data-rest:1.4.3")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.4.3")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
