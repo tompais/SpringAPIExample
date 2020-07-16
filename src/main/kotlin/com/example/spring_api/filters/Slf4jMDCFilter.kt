@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletResponse
 
 class Slf4jMDCFilter(
     private val responseHeader: String,
-    private val mdcTokenKey: String,
-    private val requestHeader: String?
+    private val mdcTokenKey: String
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
@@ -19,15 +18,14 @@ class Slf4jMDCFilter(
         filterChain: FilterChain
     ) {
         try {
-            val token = if (!requestHeader.isNullOrBlank() && !request.getHeader(requestHeader).isNullOrBlank()) {
-                request.getHeader(requestHeader)
-            } else {
-                UUID.randomUUID().toString().toUpperCase().replace("-", "")
-            }
+            val token = UUID.randomUUID().toString().toUpperCase().replace("-", "")
+
             MDC.put(mdcTokenKey, token)
+
             if (!responseHeader.isBlank()) {
                 response.addHeader(responseHeader, token)
             }
+
             filterChain.doFilter(request, response)
         } finally {
             MDC.remove(mdcTokenKey)
