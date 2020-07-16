@@ -6,6 +6,7 @@ import com.example.spring_api.error.exceptions.DuplicatedUserException
 import com.example.spring_api.error.exceptions.UserNotFoundException
 import com.example.spring_api.models.User
 import com.example.spring_api.models.User.Status
+import com.example.spring_api.models.User.Status.INACTIVE
 import com.example.spring_api.requests.UserRequest
 import com.example.spring_api.services.IUserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,12 +27,13 @@ class UserService @Autowired constructor(
         throw DuplicatedUserException(userRequest.email, e)
     }
 
-    override fun findByIdAndActive(id: Long): User = userDAO.findByIdAndActive(id) ?: throw UserNotFoundException(id)
+    override fun findByIdAndStatus(id: Long, status: Status): User =
+        userDAO.findByIdAndStatus(id, status) ?: throw UserNotFoundException(id)
 
     override fun deactivateById(id: Long) = userDAO.deactivateById(id)
 
     override fun reactivate(id: Long): User {
-        val user = userDAO.findById(id) ?: throw UserNotFoundException(id)
+        val user = userDAO.findByIdAndStatus(id, INACTIVE) ?: throw UserNotFoundException(id)
 
         return userDAO.reactivate(user)
     }

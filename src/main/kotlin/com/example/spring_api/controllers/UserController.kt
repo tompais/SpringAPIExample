@@ -3,6 +3,7 @@ package com.example.spring_api.controllers
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.models.User
 import com.example.spring_api.models.User.Status
+import com.example.spring_api.models.User.Status.ACTIVE
 import com.example.spring_api.requests.UserRequest
 import com.example.spring_api.services.IUserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -37,7 +38,7 @@ class UserController @Autowired constructor(
 
     @GetMapping("/{id}")
     @ResponseStatus(OK)
-    fun getById(@PathVariable("id") @Positive id: Long): User = userService.findByIdAndActive(id)
+    fun getById(@PathVariable("id") @Positive id: Long): User = userService.findByIdAndStatus(id, ACTIVE)
 
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)

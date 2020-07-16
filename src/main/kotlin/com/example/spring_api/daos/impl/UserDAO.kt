@@ -8,7 +8,6 @@ import com.example.spring_api.models.User.Status
 import com.example.spring_api.models.User.Status.ACTIVE
 import com.example.spring_api.models.User.Status.INACTIVE
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -17,12 +16,10 @@ class UserDAO @Autowired constructor(
 ) : IUserDAO {
     override fun create(user: User): User = userRepository.saveAndFlush(user)
 
-    override fun findByIdAndActive(id: Long): User? = userRepository.findByIdAndStatus(id, ACTIVE)
-
-    override fun findById(id: Long): User? = userRepository.findByIdOrNull(id)
+    override fun findByIdAndStatus(id: Long, status: Status): User? = userRepository.findByIdAndStatus(id, status)
 
     override fun deactivateById(id: Long) {
-        findByIdAndActive(id)?.let {
+        findByIdAndStatus(id, ACTIVE)?.let {
             it.status = INACTIVE
 
             userRepository.saveAndFlush(it)
