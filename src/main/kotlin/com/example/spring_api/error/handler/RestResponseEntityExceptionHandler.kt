@@ -95,10 +95,11 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
         ).body(
             mapOf(
                 "message" to exception.message,
-                "timestamp" to Date(),
                 "status_code" to exception.status.value(),
-                "request_id" to exception.requestId,
                 "error_code" to exception.status.reasonPhrase,
+                "timestamp" to Date(),
+                "original_exception" to ExceptionUtils.getRootCauseMessage(exception),
+                "request_id" to exception.requestId,
                 "stack_trace" to ExceptionUtils.getStackFrames(exception).map { it.replace("\t", "") }
             )
         )
