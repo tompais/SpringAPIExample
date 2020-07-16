@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class UserDAO @Autowired constructor(
-    val userRepository: IUserRepository
+    private val userRepository: IUserRepository
 ) : IUserDAO {
     override fun create(user: User): User = userRepository.saveAndFlush(user)
 

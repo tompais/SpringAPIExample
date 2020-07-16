@@ -30,7 +30,7 @@ import javax.validation.constraints.Positive
 @Validated
 @RequestMapping("/users", produces = [APPLICATION_JSON_VALUE])
 class UserController @Autowired constructor(
-    val userService: IUserService
+    private val userService: IUserService
 ) {
     @PostMapping(consumes = [APPLICATION_JSON_VALUE])
     @ResponseStatus(CREATED)
@@ -46,7 +46,7 @@ class UserController @Autowired constructor(
 
     @PutMapping("/{id}/reactivate")
     @ResponseStatus(ACCEPTED)
-    fun reactivate(@PathVariable("id") @Positive id: Long): User = userService.reactivate(id)
+    fun reactivate(@PathVariable("id") @Positive id: Long): User = userService.reactivateById(id)
 
     @GetMapping
     @ResponseStatus(OK)

@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 @Transactional
 class UserService @Autowired constructor(
-    val userDAO: IUserDAO
+    private val userDAO: IUserDAO
 ) : IUserService {
     override fun create(userRequest: UserRequest): User = try {
         userDAO.create(
@@ -32,7 +32,7 @@ class UserService @Autowired constructor(
 
     override fun deactivateById(id: Long) = userDAO.deactivateById(id)
 
-    override fun reactivate(id: Long): User {
+    override fun reactivateById(id: Long): User {
         val user = userDAO.findByIdAndStatus(id, INACTIVE) ?: throw UserNotFoundException(id)
 
         return userDAO.reactivate(user)
