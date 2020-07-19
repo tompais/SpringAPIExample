@@ -7,8 +7,8 @@ import com.example.spring_api.requests.UserRequest
 
 interface IUserService {
     fun create(userRequest: UserRequest): User
-    fun findByIdAndActive(id: Long): User
+    fun findByIdAndStatus(id: Long, status: Status): User
     fun deactivateById(id: Long)
-    fun reactivate(id: Long): User
+    fun reactivateById(id: Long): User
     fun findAllByFilters(status: Status, genre: Genre?): List<User>
 }

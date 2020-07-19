@@ -4,6 +4,8 @@ plugins {
 	id("org.springframework.boot") version "2.3.1.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 	id("org.asciidoctor.convert") version "1.5.8"
+	id("com.github.johnrengelman.processes") version "0.5.0"
+	id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
 	kotlin("plugin.jpa") version "1.3.72"
@@ -61,6 +63,8 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 	implementation("org.apache.commons:commons-lang3")
 	implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
+	implementation("org.springdoc:springdoc-openapi-data-rest:1.4.3")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.4.3")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -71,9 +75,17 @@ dependencies {
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+		exclude(module = "mockito-core")
 	}
 	testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
+	testImplementation("io.rest-assured:spring-mock-mvc:4.3.1") {
+		exclude(group = "com.sun.xml.bind", module = "jaxb-osgi")
+	}
+	testImplementation("io.rest-assured:rest-assured-common:4.3.1")
+	testImplementation("org.hamcrest:hamcrest-all:1.3")
 	testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.22")
+	testImplementation("io.mockk:mockk:1.10.0")
+	testImplementation("com.ninja-squad:springmockk:2.0.2")
 }
 
 val outputDir = "${project.buildDir}/reports/ktlint/"
@@ -159,23 +171,17 @@ tasks.jacocoTestReport {
 tasks.jacocoTestCoverageVerification {
 	violationRules {
 		rule {
-			excludes = listOf(
-				"**/error*/**",
-				"**/config*/**",
-				"**/filter*/**",
-				"**/model*/**",
-				"**/request*/**",
-				"**/database*/**",
-				"**/enum*/**"
-			)
-			limit {
-				minimum = "0.8".toBigDecimal()
-			}
-		}
-
-		rule {
 			element = "CLASS"
 			includes = listOf("com.example.spring_api.*")
+			excludes = listOf(
+				"com.example.spring_api.configs.*",
+				"com.example.spring_api.error.*",
+				"com.example.spring_api.filters.*",
+				"com.example.spring_api.models.*",
+				"com.example.spring_api.requests.*",
+				"com.example.spring_api.databases.*",
+				"com.example.spring_api.enums.*"
+			)
 
 			limit {
 				counter = "LINE"

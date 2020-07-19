@@ -8,7 +8,7 @@ open class APIException(
     message: String,
     val status: HttpStatus,
     cause: Throwable? = null,
-    val requestId: String = MDC.get(Slf4jMDCFilterConfiguration.DEFAULT_MDC_UUID_TOKEN_KEY)
+    val requestId: String? = MDC.get(Slf4jMDCFilterConfiguration.DEFAULT_MDC_UUID_TOKEN_KEY)
 ) : RuntimeException(
     message,
     cause

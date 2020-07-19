@@ -3,6 +3,7 @@ package com.example.spring_api.controllers
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.models.User
 import com.example.spring_api.models.User.Status
+import com.example.spring_api.models.User.Status.ACTIVE
 import com.example.spring_api.requests.UserRequest
 import com.example.spring_api.services.IUserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -29,7 +30,7 @@ import javax.validation.constraints.Positive
 @Validated
 @RequestMapping("/users", produces = [APPLICATION_JSON_VALUE])
 class UserController @Autowired constructor(
-    val userService: IUserService
+    private val userService: IUserService
 ) {
     @PostMapping(consumes = [APPLICATION_JSON_VALUE])
     @ResponseStatus(CREATED)
@@ -37,7 +38,7 @@ class UserController @Autowired constructor(
 
     @GetMapping("/{id}")
     @ResponseStatus(OK)
-    fun getById(@PathVariable("id") @Positive id: Long): User = userService.findByIdAndActive(id)
+    fun getById(@PathVariable("id") @Positive id: Long): User = userService.findByIdAndStatus(id, ACTIVE)
 
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
@@ -45,7 +46,7 @@ class UserController @Autowired constructor(
 
     @PutMapping("/{id}/reactivate")
     @ResponseStatus(ACCEPTED)
-    fun reactivate(@PathVariable("id") @Positive id: Long): User = userService.reactivate(id)
+    fun reactivate(@PathVariable("id") @Positive id: Long): User = userService.reactivateById(id)
 
     @GetMapping
     @ResponseStatus(OK)
