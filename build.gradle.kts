@@ -60,7 +60,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-	implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
 	implementation("org.apache.commons:commons-lang3")
 	implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
 	implementation("org.springdoc:springdoc-openapi-data-rest:1.4.3")

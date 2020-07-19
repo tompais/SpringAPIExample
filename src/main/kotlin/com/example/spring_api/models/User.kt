@@ -18,34 +18,33 @@ import javax.persistence.PreUpdate
 import javax.persistence.Table
 import javax.persistence.Temporal
 import javax.persistence.TemporalType.DATE
+import javax.persistence.TemporalType.TIMESTAMP
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Past
-import javax.validation.constraints.Positive
+import javax.validation.constraints.PositiveOrZero
 
 @Entity
 @Table(name = "users")
 class User(
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Positive
+    @field:PositiveOrZero
     @Column(unique = true, nullable = false)
     val id: Long,
 
-    @NotBlank
+    @field:NotBlank
     @Column(nullable = false)
     val firstName: String,
 
-    @NotBlank
+    @field:NotBlank
     @Column(nullable = false)
     val lastName: String,
 
-    @NotBlank
-    @Email
+    @field:NotBlank
+    @field:Email
     @Column(unique = true, nullable = false)
     val email: String,
 
-    @Past
     @Column(nullable = false)
     @Basic
     @Temporal(DATE)
@@ -59,8 +58,10 @@ class User(
     @Column(nullable = false)
     var status: Status = ACTIVE,
 
-    @Column
-    var lastUpdate: Date = Date.from(Instant.now())
+    @Column(nullable = false)
+    @Basic
+    @Temporal(TIMESTAMP)
+    private var lastUpdate: Date = Date.from(Instant.now())
 ) {
     enum class Status {
         ACTIVE,
