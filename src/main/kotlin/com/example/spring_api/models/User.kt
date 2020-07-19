@@ -20,9 +20,9 @@ import javax.persistence.Temporal
 import javax.persistence.TemporalType.DATE
 import javax.persistence.TemporalType.TIMESTAMP
 import javax.validation.constraints.Email
-import javax.validation.constraints.FutureOrPresent
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Past
+import javax.validation.constraints.PastOrPresent
 import javax.validation.constraints.Positive
 
 @Entity
@@ -61,7 +61,7 @@ class User(
     @Column(nullable = false)
     var status: Status = ACTIVE,
 
-    @field:FutureOrPresent
+    @field:PastOrPresent
     @Column(nullable = false)
     @Basic
     @Temporal(TIMESTAMP)
