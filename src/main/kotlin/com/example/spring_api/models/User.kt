@@ -21,16 +21,14 @@ import javax.persistence.TemporalType.DATE
 import javax.persistence.TemporalType.TIMESTAMP
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Past
-import javax.validation.constraints.PastOrPresent
-import javax.validation.constraints.Positive
+import javax.validation.constraints.PositiveOrZero
 
 @Entity
 @Table(name = "users")
 class User(
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @field:Positive
+    @field:PositiveOrZero
     @Column(unique = true, nullable = false)
     val id: Long,
 
@@ -47,7 +45,6 @@ class User(
     @Column(unique = true, nullable = false)
     val email: String,
 
-    @field:Past
     @Column(nullable = false)
     @Basic
     @Temporal(DATE)
@@ -61,11 +58,10 @@ class User(
     @Column(nullable = false)
     var status: Status = ACTIVE,
 
-    @field:PastOrPresent
     @Column(nullable = false)
     @Basic
     @Temporal(TIMESTAMP)
-    var lastUpdate: Date = Date.from(Instant.now())
+    private var lastUpdate: Date = Date.from(Instant.now())
 ) {
     enum class Status {
         ACTIVE,
