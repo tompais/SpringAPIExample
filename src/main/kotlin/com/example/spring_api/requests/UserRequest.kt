@@ -2,7 +2,8 @@ package com.example.spring_api.requests
 
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.models.User
-import java.util.Date
+import com.example.spring_api.validators.interfaces.OlderThanEighteen
+import java.time.LocalDate
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Past
@@ -19,7 +20,8 @@ class UserRequest(
     val email: String,
 
     @field:Past
-    val birthday: Date,
+    @field:OlderThanEighteen
+    val birthday: LocalDate,
 
     private val genre: Genre?
 ) : IModelBuilder<User> {
