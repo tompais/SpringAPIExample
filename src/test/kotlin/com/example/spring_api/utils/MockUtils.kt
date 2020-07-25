@@ -5,8 +5,7 @@ import com.example.spring_api.enums.Genre.OTHER
 import com.example.spring_api.models.User
 import com.example.spring_api.models.User.Status
 import com.example.spring_api.models.User.Status.ACTIVE
-import java.text.SimpleDateFormat
-import java.util.Date
+import java.time.LocalDate
 
 object MockUtils {
     fun mockUser(
@@ -14,7 +13,7 @@ object MockUtils {
         firstName: String = "Pepe",
         lastName: String = "Martínez",
         email: String = "pepe.martinez@gmail.com",
-        birthday: Date = SimpleDateFormat("yyyy-MM-dd").parse("1995-11-15"),
+        birthday: LocalDate = LocalDate.now().minusYears(24),
         genre: Genre = OTHER,
         status: Status = ACTIVE
     ) = User(id, firstName, lastName, email, birthday, genre, status)

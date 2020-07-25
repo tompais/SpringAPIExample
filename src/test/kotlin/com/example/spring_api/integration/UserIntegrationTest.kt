@@ -21,11 +21,13 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.http.HttpStatus.ACCEPTED
+import org.springframework.http.HttpStatus.BAD_REQUEST
 import org.springframework.http.HttpStatus.CONFLICT
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.NOT_FOUND
 import org.springframework.http.HttpStatus.NO_CONTENT
 import org.springframework.http.HttpStatus.OK
+import java.time.LocalDate
 
 class UserIntegrationTest : BaseIntegrationTest() {
     @Autowired
@@ -149,6 +151,25 @@ class UserIntegrationTest : BaseIntegrationTest() {
             .assertThat()
             .statusCode(equalTo(OK.value()))
             .body("size()", equalTo(1))
+    }
+
+    @Test
+    fun createUserYoungerThanEighteenTest() {
+        // GIVEN
+        val youngUser = mockUser(birthday = LocalDate.now())
+
+        // THEN
+        given()
+            .accept(JSON)
+            .contentType(JSON)
+            .body(
+                mapper.writeValueAsBytes(youngUser)
+            )
+            .`when`()
+            .post("/users")
+            .then()
+            .assertThat()
+            .statusCode(equalTo(BAD_REQUEST.value()))
     }
 }
 
