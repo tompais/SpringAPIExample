@@ -39,4 +39,6 @@ class UserService @Autowired constructor(
     }
 
     override fun findAllByFilters(status: Status, genre: Genre?): List<User> = userDAO.findAllByFilters(status, genre)
+
+    override fun findAllUsersOverTwentyYearsOld(): List<User> = userDAO.findAllUsersOverTwentyOneYearsOld()
 }

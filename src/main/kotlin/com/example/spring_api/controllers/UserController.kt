@@ -60,4 +60,8 @@ class UserController @Autowired constructor(
             required = false
         ) genre: Genre? = null
     ): List<User> = userService.findAllByFilters(status, genre)
+
+    @GetMapping("/oldest")
+    @ResponseStatus(OK)
+    fun getTheOldestUsers(): List<User> = userService.findAllUsersOverTwentyYearsOld()
 }

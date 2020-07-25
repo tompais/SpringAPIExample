@@ -11,4 +11,5 @@ interface IUserService {
     fun deactivateById(id: Long)
     fun reactivateById(id: Long): User
     fun findAllByFilters(status: Status, genre: Genre?): List<User>
+    fun findAllUsersOverTwentyYearsOld(): List<User>
 }

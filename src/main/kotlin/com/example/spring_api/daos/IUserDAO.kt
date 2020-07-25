@@ -10,4 +10,5 @@ interface IUserDAO {
     fun deactivateById(id: Long)
     fun reactivate(user: User): User
     fun findAllByFilters(status: Status, genre: Genre?): List<User>
+    fun findAllUsersOverTwentyOneYearsOld(): List<User>
 }
