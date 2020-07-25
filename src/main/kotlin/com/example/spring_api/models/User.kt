@@ -3,7 +3,7 @@ package com.example.spring_api.models
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.enums.Genre.OTHER
 import com.example.spring_api.models.User.Status.ACTIVE
-import com.example.spring_api.validators.interfaces.OlderThanEighteen
+import com.example.spring_api.validators.annotations.OverEighteen
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Basic
@@ -48,7 +48,7 @@ class User(
     @Column(nullable = false)
     @Basic
     @field:Past
-    @field:OlderThanEighteen
+    @field:OverEighteen
     val birthday: LocalDate,
 
     @Enumerated(STRING)
