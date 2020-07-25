@@ -2,6 +2,7 @@ package com.example.spring_api.daos.impl
 
 import com.example.spring_api.daos.IUserDAO
 import com.example.spring_api.databases.repositories.IUserRepository
+import com.example.spring_api.databases.specifications.UserSpecification
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.models.User
 import com.example.spring_api.models.User.Status
@@ -37,4 +38,7 @@ class UserDAO @Autowired constructor(
     } else {
         userRepository.findAllByStatusAndGenre(status, genre)
     }
+
+    override fun findAllUsersOverTwentyOneYearsOld(): List<User> =
+        userRepository.findAll(UserSpecification.isOverTwentyOneYearsOld())
 }

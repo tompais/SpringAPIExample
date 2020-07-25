@@ -171,6 +171,28 @@ class UserIntegrationTest : BaseIntegrationTest() {
             .assertThat()
             .statusCode(equalTo(BAD_REQUEST.value()))
     }
+
+    @Test
+    fun getOldestUsersTest() {
+        // GIVEN
+        val twentyThreeYearsOldUser = mockUser(id = 1, email = "toto@gmail.com", birthday = LocalDate.now().minusYears(23))
+        val twentyYearsOldUser = mockUser(id = 2, email = "nano@gmail.com", birthday = LocalDate.now().minusYears(20))
+
+        userRepository.saveAll(
+            listOf(
+                twentyThreeYearsOldUser,
+                twentyYearsOldUser
+            )
+        )
+
+        // THEN
+        `when`()
+            .get("/users/oldest")
+            .then()
+            .assertThat()
+            .statusCode(equalTo(OK.value()))
+            .body("size()", equalTo(1))
+    }
 }
 
 private fun Assert<User>.isInactive() = given {
