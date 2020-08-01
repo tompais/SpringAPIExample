@@ -1,9 +1,9 @@
-name: Branch Name
+name: Branch Name Rules
 on: [pull_request]
 jobs:
   branch_name:
     runs-on: ubuntu-latest
-    name: Branch Name
+    name: Check
     steps:
     - uses: deepakputhraya/action-branch-name@master
       with:
@@ -11,4 +11,4 @@ jobs:
         allowed_prefixes: 'feature,hotfix,backport,release,refactor,fix' # All branches should start with the given prefix
         ignore: master,develop # Ignore exactly matching branch names from convention
         min_length: 5 # Min length of the branch name
-        max_length: 20 # Max length of the branch name
+        max_length: 50 # Max length of the branch name
