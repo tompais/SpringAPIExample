@@ -45,6 +45,13 @@ jacoco {
 	applyTo(tasks.run.get())
 }
 
+sonarqube {
+	properties {
+		property("sonar.projectKey", "tompais")
+		property("sonar.sourceEncoding", "UTF-8")
+	}
+}
+
 dependencies {
 	ktlint("com.pinterest:ktlint:0.37.2")
 
