@@ -22,7 +22,7 @@ open class DatabaseInfo(
     ) {
         MYSQL(
             "com.mysql.cj.jdbc.Driver",
-            "org.hibernate.dialect.MySQL8Dialect"
+            "org.hibernate.dialect.MySQLDialect"
         ),
         H2(
             "org.h2.Driver",
