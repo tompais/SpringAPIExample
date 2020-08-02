@@ -1,7 +1,7 @@
 package com.example.spring_api.databases
 
 import com.example.spring_api.databases.DatabaseInfo.DatabaseType.MYSQL
-import com.example.spring_api.databases.HibernateInfo.HibernateMode.CREATE_DROP
+import com.example.spring_api.databases.HibernateInfo.HibernateMode.CREATE
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 
@@ -16,5 +16,5 @@ class CEEAInfo : HikariInfo(
     mapOf(
         "reconnect" to "true"
     ),
-    hibernateMode = CREATE_DROP
+    hibernateMode = CREATE
 )
