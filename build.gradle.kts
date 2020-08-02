@@ -208,3 +208,11 @@ tasks.asciidoctor {
     project.property("snippetsDir")?.let { inputs.dir(it) }
     dependsOn(tasks.test)
 }
+
+tasks.register("stage") {
+    dependsOn("build", "clean")
+}
+
+tasks.build {
+    mustRunAfter(tasks.clean)
+}
