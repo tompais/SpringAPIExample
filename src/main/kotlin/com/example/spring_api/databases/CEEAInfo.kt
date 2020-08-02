@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component
 @Component("CEEAInfo")
 class CEEAInfo : HikariInfo(
     MYSQL,
-    "localhost:3306",
-    "ceea",
+    "b5b688f48d59fd:f606d19c@us-cdbr-east-02.cleardb.com",
+    "heroku_64f3f9f2ce5afac",
     "root",
     "root1234",
     mapOf(
-        "useSSL" to "false"
+        "reconnect" to "true"
     ),
     hibernateMode = CREATE_DROP
 )
