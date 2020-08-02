@@ -43,7 +43,6 @@ application {
 heroku {
     appName = "spring-api-example"
     includes = mutableListOf("README.md")
-    jdkVersion = "14"
 }
 
 jacoco {
