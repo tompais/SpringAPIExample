@@ -1,6 +1,6 @@
 package com.example.spring_api.databases
 
-import com.example.spring_api.error.exceptions.InvalidMySQLVersion
+import com.example.spring_api.error.exceptions.InvalidMySQLVersionException
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 import org.springframework.web.util.UriComponentsBuilder
@@ -45,7 +45,7 @@ open class DatabaseInfo(
             fun getMySQLType(mysqlVersion: Int) = when (mysqlVersion) {
                 5 -> MYSQL5
                 8 -> MYSQL8
-                else -> throw InvalidMySQLVersion(mysqlVersion)
+                else -> throw InvalidMySQLVersionException(mysqlVersion)
             }
         }
 
