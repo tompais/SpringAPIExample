@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.Positive
 
 @Profile("prod")
 @Component("CEEAInfo")
 class CEEAInfo @Autowired constructor(
-    @Value("\${MYSQL_VERSION:8}") mysqlVersion: Int,
+    @Positive @Value("\${MYSQL_VERSION:8}") mysqlVersion: Int,
     @NotBlank @Value("\${CEEA_DB_URL:localhost:3306}") host: String,
     @NotBlank @Value("\${CEEA_DB_SCHEMA:ceea}") databaseName: String,
     @NotBlank @Value("\${CEEA_DB_USER:root}") username: String,
