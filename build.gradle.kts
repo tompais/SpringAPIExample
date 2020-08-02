@@ -6,6 +6,7 @@ plugins {
 	id("org.asciidoctor.convert") version "1.5.8"
 	id("com.github.johnrengelman.processes") version "0.5.0"
 	id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
+	id("com.heroku.sdk.heroku-gradle") version "2.0.0"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
 	kotlin("plugin.jpa") version "1.3.72"
@@ -37,6 +38,12 @@ val ktlint: Configuration by configurations.creating
 
 application {
 	mainClass.set("com.example.spring_api.SpringApiExampleApplicationKt")
+}
+
+heroku {
+	appName = "spring-api-example"
+	includes = mutableListOf("README.md")
+	jdkVersion = "14"
 }
 
 jacoco {
