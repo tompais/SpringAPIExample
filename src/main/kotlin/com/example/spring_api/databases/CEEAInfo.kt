@@ -1,7 +1,7 @@
 package com.example.spring_api.databases
 
 import com.example.spring_api.databases.DatabaseInfo.DatabaseType.MYSQL
-import com.example.spring_api.databases.HibernateInfo.HibernateMode.CREATE_DROP
+import com.example.spring_api.databases.HibernateInfo.HibernateMode.CREATE
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 
@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component
 @Component("CEEAInfo")
 class CEEAInfo : HikariInfo(
     MYSQL,
-    "localhost:3306",
-    "ceea",
-    "root",
-    "root1234",
+    "b5b688f48d59fd:f606d19c@us-cdbr-east-02.cleardb.com",
+    "heroku_64f3f9f2ce5afac",
+    "b5b688f48d59fd",
+    "f606d19c",
     mapOf(
-        "useSSL" to "false"
+        "reconnect" to "true"
     ),
-    hibernateMode = CREATE_DROP
+    hibernateMode = CREATE
 )

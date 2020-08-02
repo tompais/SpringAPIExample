@@ -43,7 +43,6 @@ application {
 heroku {
     appName = "spring-api-example"
     includes = mutableListOf("README.md")
-    jdkVersion = "14"
 }
 
 jacoco {
@@ -207,4 +206,25 @@ tasks.register<JacocoReport>("applicationCodeCoverageReport") {
 tasks.asciidoctor {
     project.property("snippetsDir")?.let { inputs.dir(it) }
     dependsOn(tasks.test)
+}
+
+tasks.register("stage") {
+    dependsOn(tasks.build, tasks.clean, tasks["copyToLib"])
+}
+
+tasks.register("copyToLib", Copy::class.java) {
+    into("$buildDir/libs")
+    from(configurations.compile)
+}
+
+tasks.build {
+    mustRunAfter(tasks.clean)
+}
+
+gradle.taskGraph.whenReady {
+    if (hasTask(tasks["stage"])) {
+        tasks.test.configure {
+            enabled = false
+        }
+    }
 }

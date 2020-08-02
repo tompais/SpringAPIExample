@@ -21,8 +21,8 @@ open class DatabaseInfo(
         val dialect: String
     ) {
         MYSQL(
-            "com.mysql.cj.jdbc.Driver",
-            "org.hibernate.dialect.MySQL8Dialect"
+            "com.mysql.jdbc.Driver",
+            "org.hibernate.dialect.MySQL5Dialect"
         ),
         H2(
             "org.h2.Driver",
