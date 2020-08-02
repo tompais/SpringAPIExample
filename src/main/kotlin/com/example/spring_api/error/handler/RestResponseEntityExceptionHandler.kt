@@ -12,14 +12,14 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.web.bind.MethodArgumentNotValidException
-import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
 import java.util.Date
 import javax.validation.ConstraintViolationException
 
-@ControllerAdvice
+@RestControllerAdvice
 class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
 
     fun logException(exception: Exception) {
@@ -95,10 +95,11 @@ class RestResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
         ).body(
             mapOf(
                 "message" to exception.message,
-                "timestamp" to Date(),
                 "status_code" to exception.status.value(),
-                "request_id" to exception.requestId,
                 "error_code" to exception.status.reasonPhrase,
+                "timestamp" to Date(),
+                "original_exception" to ExceptionUtils.getRootCauseMessage(exception),
+                "request_id" to exception.requestId,
                 "stack_trace" to ExceptionUtils.getStackFrames(exception).map { it.replace("\t", "") }
             )
         )

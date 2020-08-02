@@ -14,15 +14,9 @@ class Slf4jMDCFilterConfiguration {
         const val DEFAULT_MDC_UUID_TOKEN_KEY = "Slf4jMDCFilter.UUID"
     }
 
-    private val responseHeader = DEFAULT_RESPONSE_TOKEN_HEADER
-    private val mdcTokenKey = DEFAULT_MDC_UUID_TOKEN_KEY
-    private val requestHeader: String? = null
-
     @Bean
-    fun servletRegistrationBean(): FilterRegistrationBean<*>? {
-        return FilterRegistrationBean<Slf4jMDCFilter>().apply {
-            filter = Slf4jMDCFilter(responseHeader, mdcTokenKey, requestHeader)
-            order = 2
-        }
+    fun servletRegistrationBean() = FilterRegistrationBean<Slf4jMDCFilter>().apply {
+        filter = Slf4jMDCFilter(DEFAULT_RESPONSE_TOKEN_HEADER, DEFAULT_MDC_UUID_TOKEN_KEY)
+        order = 2
     }
 }

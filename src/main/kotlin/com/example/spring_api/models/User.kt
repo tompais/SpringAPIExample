@@ -3,8 +3,9 @@ package com.example.spring_api.models
 import com.example.spring_api.enums.Genre
 import com.example.spring_api.enums.Genre.OTHER
 import com.example.spring_api.models.User.Status.ACTIVE
-import java.time.Instant
-import java.util.Date
+import com.example.spring_api.validators.annotations.OverEighteen
+import java.time.LocalDate
+import java.time.LocalDateTime
 import javax.persistence.Basic
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -16,40 +17,39 @@ import javax.persistence.Id
 import javax.persistence.PrePersist
 import javax.persistence.PreUpdate
 import javax.persistence.Table
-import javax.persistence.Temporal
-import javax.persistence.TemporalType.DATE
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Past
-import javax.validation.constraints.Positive
+import javax.validation.constraints.PastOrPresent
+import javax.validation.constraints.PositiveOrZero
 
 @Entity
 @Table(name = "users")
 class User(
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Positive
+    @field:PositiveOrZero
     @Column(unique = true, nullable = false)
     val id: Long,
 
-    @NotBlank
+    @field:NotBlank
     @Column(nullable = false)
     val firstName: String,
 
-    @NotBlank
+    @field:NotBlank
     @Column(nullable = false)
     val lastName: String,
 
-    @NotBlank
-    @Email
+    @field:NotBlank
+    @field:Email
     @Column(unique = true, nullable = false)
     val email: String,
 
-    @Past
     @Column(nullable = false)
     @Basic
-    @Temporal(DATE)
-    val birthday: Date,
+    @field:Past
+    @field:OverEighteen
+    val birthday: LocalDate,
 
     @Enumerated(STRING)
     @Column(nullable = false)
@@ -59,8 +59,10 @@ class User(
     @Column(nullable = false)
     var status: Status = ACTIVE,
 
-    @Column
-    var lastUpdate: Date = Date.from(Instant.now())
+    @Column(nullable = false)
+    @Basic
+    @field:PastOrPresent
+    private var lastUpdate: LocalDateTime = LocalDateTime.now()
 ) {
     enum class Status {
         ACTIVE,
@@ -70,6 +72,6 @@ class User(
     @PrePersist
     @PreUpdate
     fun setLastUpdateNow() {
-        lastUpdate = Date.from(Instant.now())
+        lastUpdate = LocalDateTime.now()
     }
 }
