@@ -12,7 +12,7 @@ open class HikariInfo(
     extraParams: Map<String, String>? = null,
     hibernateMode: HibernateMode = UPDATE,
     private val minimumIdle: Int = 5,
-    private val maximumPoolSize: Int = 20,
+    private val maximumPoolSize: Int = 5,
     private val idleTimeout: Long = 30000,
     private val poolName: String = "SpringBootJPAHikariCP",
     private val maxLifetime: Long = 2000000,
