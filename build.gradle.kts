@@ -210,9 +210,22 @@ tasks.asciidoctor {
 }
 
 tasks.register("stage") {
-    dependsOn("build", "clean")
+    dependsOn(tasks.build, tasks.clean, tasks["copyToLib"])
+}
+
+tasks.register("copyToLib", Copy::class.java) {
+    into("$buildDir/libs")
+    from(configurations.compile)
 }
 
 tasks.build {
     mustRunAfter(tasks.clean)
+}
+
+gradle.taskGraph.whenReady {
+    if (hasTask(tasks["stage"])) {
+        tasks.test.configure {
+            enabled = false
+        }
+    }
 }
