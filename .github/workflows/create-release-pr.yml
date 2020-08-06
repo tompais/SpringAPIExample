@@ -27,6 +27,9 @@ jobs:
           body: |
             This release was made with ❤️ automatically by the create release pull request action 💪
           draft: false
+      - uses: actions/checkout@v2
+        with:
+          ref: release/${{ steps.date.outputs.date }}
       - uses: ./.github/workflows/branch-name
       - uses: ./.github/workflows/reviewdog
       - uses: ./.github/workflows/auto-approve
