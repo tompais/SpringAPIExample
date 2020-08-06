@@ -27,3 +27,6 @@ jobs:
           body: |
             This release was made with ❤️ automatically by the create release pull request action 💪
           draft: false
+      - uses: ./.github/actions/branch-name
+      - uses: ./.github/actions/reviewdog
+      - uses: ./.github/actions/auto-approve
