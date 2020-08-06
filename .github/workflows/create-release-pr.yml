@@ -20,6 +20,6 @@ jobs:
           branch: release/${{ steps.date.outputs.date }}
           title: 'New Release ${{ steps.date.outputs.date }} 🚀'
           body: |
-            This deploy was made with ❤️ automatically by the create release pull request action 💪
+            This release was made with ❤️ automatically by the create release pull request action 💪
           draft: false
           ref: develop
