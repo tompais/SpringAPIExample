@@ -136,7 +136,7 @@ class UserIntegrationTest : BaseIntegrationTest() {
             .then()
             .assertThat()
             .statusCode(equalTo(ACCEPTED.value()))
-            .body("status", equalTo(ACTIVE.name))
+            .body("status", equalTo(ACTIVE.name.toLowerCase()))
     }
 
     @Test
@@ -175,7 +175,8 @@ class UserIntegrationTest : BaseIntegrationTest() {
     @Test
     fun getOldestUsersTest() {
         // GIVEN
-        val twentyThreeYearsOldUser = mockUser(id = 1, email = "toto@gmail.com", birthday = LocalDate.now().minusYears(23))
+        val twentyThreeYearsOldUser =
+            mockUser(id = 1, email = "toto@gmail.com", birthday = LocalDate.now().minusYears(23))
         val twentyYearsOldUser = mockUser(id = 2, email = "nano@gmail.com", birthday = LocalDate.now().minusYears(20))
 
         userRepository.saveAll(
