@@ -22,3 +22,4 @@ jobs:
           body: |
             This deploy was made with ❤️ automatically by the create release pull request action 💪
           draft: false
+          base: develop
