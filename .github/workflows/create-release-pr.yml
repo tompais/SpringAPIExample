@@ -1,0 +1,24 @@
+name: Create Release Pull Request
+on: [workflow_dispatch]
+jobs:
+  createReleasePullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date '+%Y-%m-%d@%H:%M:%S')"
+
+      - uses: actions/checkout@v2
+
+      - name: Create Release Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: release/${{ steps.date.outputs.date }}
+          title: 'New Release ${{ steps.date.outputs.date }} 🚀'
+          body: |
+            This deploy was made with ❤️ automatically by the create release pull request action 💪
+          draft: false
