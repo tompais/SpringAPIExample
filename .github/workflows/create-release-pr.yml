@@ -30,6 +30,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: release/${{ steps.date.outputs.date }}
-      - uses: ./.github/workflows/branch-name
-      - uses: ./.github/workflows/reviewdog
-      - uses: ./.github/workflows/auto-approve
+      - uses: ./.github/workflows/branch-name.yml
+      - uses: ./.github/workflows/reviewdog.yml
+      - uses: ./.github/workflows/auto-approve.yml
