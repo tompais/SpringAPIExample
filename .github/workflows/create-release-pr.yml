@@ -13,14 +13,23 @@ jobs:
           ref: master
       - name: Reset develop branch
         run: |
-         git fetch origin develop:develop
-         git reset --hard develop
+          git fetch origin develop:develop
+          git reset --hard develop
       - name: Create Release Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
           branch: release/${{ steps.date.outputs.date }}
           title: 'New Release ${{ steps.date.outputs.date }} 🚀'
           body: |
             This release was made with ❤️ automatically by the create release pull request action 💪
           draft: false
+      - uses: actions/checkout@v2
+        with:
+          ref: release/${{ steps.date.outputs.date }}
+      - uses: hmarr/auto-approve-action@v2.0.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
