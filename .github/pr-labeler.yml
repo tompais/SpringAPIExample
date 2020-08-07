@@ -3,4 +3,4 @@ fix: fix/*
 refactor: refactor/*
 enhancement: enhancement/*
 hotfix: hotfix/*
-backport develop: release/*
+autosquash: release/*
