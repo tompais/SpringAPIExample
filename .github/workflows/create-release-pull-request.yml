@@ -1,0 +1,42 @@
+name: Create Release Pull Request
+on: [workflow_dispatch]
+jobs:
+  createReleasePullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d@%H_%M')"
+
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Reset develop branch
+        run: |
+          git fetch origin develop:develop
+          git reset --hard develop
+
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: release/${{ steps.date.outputs.date }}
+          title: 'New Release ${{ steps.date.outputs.date }}'
+          body: |
+            This PR was made with ❤️ by the Release Slayer 💪
+          draft: false
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Check output
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
