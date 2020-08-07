@@ -4,6 +4,8 @@ import com.example.spring_api.enums.Genre
 import com.example.spring_api.enums.Genre.OTHER
 import com.example.spring_api.models.User.Status.ACTIVE
 import com.example.spring_api.validators.annotations.OverEighteen
+import com.fasterxml.jackson.annotation.JsonValue
+import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.persistence.Basic
@@ -14,8 +16,6 @@ import javax.persistence.Enumerated
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType.IDENTITY
 import javax.persistence.Id
-import javax.persistence.PrePersist
-import javax.persistence.PreUpdate
 import javax.persistence.Table
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
@@ -29,20 +29,20 @@ class User(
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @field:PositiveOrZero
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, updatable = false)
     val id: Long,
 
     @field:NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     val firstName: String,
 
     @field:NotBlank
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     val lastName: String,
 
     @field:NotBlank
     @field:Email
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 30)
     val email: String,
 
     @Column(nullable = false)
@@ -61,17 +61,17 @@ class User(
 
     @Column(nullable = false)
     @Basic
+    @UpdateTimestamp
     @field:PastOrPresent
-    private var lastUpdate: LocalDateTime = LocalDateTime.now()
+    private val lastUpdate: LocalDateTime = LocalDateTime.now()
 ) {
     enum class Status {
         ACTIVE,
-        INACTIVE
-    }
+        INACTIVE;
 
-    @PrePersist
-    @PreUpdate
-    fun setLastUpdateNow() {
-        lastUpdate = LocalDateTime.now()
+        @JsonValue
+        override fun toString(): String {
+            return name.toLowerCase()
+        }
     }
 }
