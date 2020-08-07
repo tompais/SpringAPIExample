@@ -1,0 +1,25 @@
+name: Backport
+on:
+  pull_request:
+    types:
+      - closed
+      - labeled
+    branches:
+      - master
+
+jobs:
+  backport:
+    runs-on: ubuntu-18.04
+    name: Backport
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '([a-z])+\/([a-z0-9\-@_])+' # Regex the branch should match. This example enforces grouping
+          allowed_prefixes: 'release' # All branches should start with the given prefix
+          ignore: master,develop # Ignore exactly matching branch names from convention
+          min_length: 5 # Min length of the branch name
+          max_length: 50 # Max length of the branch name
+      - name: Backport
+        uses: tibdex/backport@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
