@@ -33,7 +33,7 @@ jobs:
           branch: release/${{ steps.date.outputs.date }}
           title: 'New Release ${{ steps.date.outputs.date }}'
           body: |
-            This PR was made with ❤️ by the Release Slayer action 💪
+            This PR was made with ❤️ by the Release Slayer 💪
           draft: false
           token: ${{ steps.generate-token.outputs.token }}
 
