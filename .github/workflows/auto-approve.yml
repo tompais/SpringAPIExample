@@ -1,7 +1,6 @@
 name: Auto approve
 on:
   pull_request:
-    types: [opened, reopened]
     branches:
       - 'release/**'
       - 'backport/**'

@@ -1,7 +1,5 @@
 name: Branch Name Rules
-on:
-  pull_request:
-    types: [opened, reopened]
+on: [pull_request]
 jobs:
   branch_name:
     runs-on: ubuntu-latest
