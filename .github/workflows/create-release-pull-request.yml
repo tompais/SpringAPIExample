@@ -8,12 +8,6 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d@%H_%M')"
 
-      - uses: tibdex/github-app-token@v1
-        id: generate-token
-        with:
-          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
-          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
-
       - uses: actions/checkout@v2
         with:
           ref: master
@@ -22,6 +16,12 @@ jobs:
         run: |
           git fetch origin develop:develop
           git reset --hard develop
+
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
 
       - name: Create Pull Request
         id: cpr
@@ -35,6 +35,7 @@ jobs:
           body: |
             This PR was made with ❤️ by the create-pull-request action 💪
           draft: false
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Check output
         run: |
