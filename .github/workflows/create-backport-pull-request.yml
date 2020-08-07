@@ -1,7 +1,8 @@
 name: Create Backport Pull Request
 on:
   push:
-    - master
+    branches:
+      - master
 
 jobs:
   createBackportPullRequest:
