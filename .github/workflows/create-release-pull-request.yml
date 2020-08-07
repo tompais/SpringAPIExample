@@ -17,18 +17,11 @@ jobs:
           git fetch origin develop:develop
           git reset --hard develop
 
-      - name: Get token
-        id: get_token
-        uses: machine-learning-apps/actions-app-token@master
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
         with:
-          APP_PEM: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
-          APP_ID: ${{ secrets.RELEASE_SLAYER_APP_ID }}
-
-      - name: Get App Installation Token
-        run: |
-          echo "This token is masked: ${TOKEN}"
-        env:
-          TOKEN: ${{ steps.get_token.outputs.app_token }}
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
 
       - name: Create Pull Request
         id: cpr
@@ -42,7 +35,7 @@ jobs:
           body: |
             This PR was made with ❤️ by the create-pull-request action 💪
           draft: false
-          token: ${{ steps.get_token.outputs.app_token }}
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Check output
         run: |
