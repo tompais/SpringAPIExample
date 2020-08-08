@@ -8,6 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
+
       - uses: deepakputhraya/action-branch-name@master
         with:
           regex: '([a-z])+\/([a-z0-9\-@_])+' # Regex the branch should match. This example enforces grouping
@@ -15,6 +21,7 @@ jobs:
           ignore: master,develop # Ignore exactly matching branch names from convention
           min_length: 5 # Min length of the branch name
           max_length: 50 # Max length of the branch name
+
       - uses: hmarr/auto-approve-action@v2.0.0
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: "${{ steps.generate-token.outputs.token }}"

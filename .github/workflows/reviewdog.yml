@@ -6,12 +6,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
+
       - name: Clone repo
         uses: actions/checkout@master
         with:
           fetch-depth: 1
+
       - name: ktlint
         uses: ScaCap/action-ktlint@master
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ steps.generate-token.outputs.token }}
           reporter: github-pr-review # Change reporter
