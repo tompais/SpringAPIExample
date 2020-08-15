@@ -4,14 +4,16 @@ categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
-      - 'enhancement'
-  - title: '🐛 Bug Fixes'
+  - title: '💪 Enhancements'
     labels:
-      - 'fix'
-      - 'hotifx'
+      - 'enhancement'
   - title: '🔧 Refactors'
     labels:
       - 'refactor'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'hotfix'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## Changes
