@@ -9,6 +9,12 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.RELEASE_SLAYER_APP_ID }}
+          private_key: ${{ secrets.RELEASE_SLAYER_APP_SECRET }}
+
       - uses: actions/checkout@master
       - name: Run Memer Action
         id: memer
@@ -37,3 +43,4 @@ jobs:
 
             > **${{ steps.memer.outputs.title }}**
             ![meme](${{ steps.memer.outputs.meme }})
+          token: ${{ steps.generate-token.outputs.token }}
