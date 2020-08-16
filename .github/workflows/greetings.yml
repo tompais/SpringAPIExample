@@ -37,7 +37,7 @@ jobs:
           issue-number: ${{ github.event.number }}
           body: |
             🎉🎉 Thanks for opening this PR 🤗
-            Please wait while a developer review it
+            Please wait while a developer reviews it
 
             Meanwhile have a look at this 😝 :
 
