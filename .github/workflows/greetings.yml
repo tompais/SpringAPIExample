@@ -21,7 +21,7 @@ jobs:
 
         uses: Bhupesh-V/memer-action@master
         with:
-          filter: "new"
+          filter: "hot"
           fallback: '{"meme_link":"https://pbs.twimg.com/media/EOb_2m4W4AYDf-p.jpg", "title": "Oops :( looks like we are out of memes.", "src": ""}'
 
       - name: Check Outputs
