@@ -10,6 +10,6 @@ class HelloControllerTest {
 
     @Test
     fun helloTest() {
-        assertThat(helloController.hello()).isEqualTo("hello")
+        assertThat(helloController.hello()).isEqualTo("hello world!")
     }
 }
